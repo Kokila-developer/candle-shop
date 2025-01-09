@@ -1,0 +1,455 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+nav{
+	width: 100%;
+	height: 80px;
+	border: 2px solid black;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+.navbar-list ul li{
+	display: inline-block;
+	padding: 0 20px;
+/*	border: 2px solid black;*/
+}
+.navbar-list ul li a{
+	text-decoration: none;
+	color: black;
+	position: relative;
+	padding: 7px 0;
+}
+.navbar-list ul li a:before{
+	position: absolute;
+	content: "";
+	left: 0;
+	top: 0;
+	height: 4px;
+	width: 100%;
+	background-color: rgb(94 94 74);
+	transform: scalex(0);
+	transform-origin: right;
+	transition: 0.5s linear;
+	border-radius: 5px;
+}
+.navbar-list ul li a:hover:before{
+	transform: scalex(1);
+	transform-origin: left;
+	color: white;
+}
+nav h1{
+	word-spacing: 3px;
+}
+.nav-icons i{
+	padding: 0 5px;
+}
+nav .nav-btn{
+ 	font-size: 20px;
+ 	width: 40px;
+}
+.nav-btn{
+	display: none;
+}
+@media (max-width:991px){
+	nav{
+		position: relative;
+	}
+	.navbar-list{
+		top: 80px;
+		width: 100%;
+		position: absolute;
+	}
+	.navbar-list ul li{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 20px 0;
+	}
+	.hide{
+		display: none;
+	}
+	.nav-btn{
+		display: block;
+	}
+}
+@media (max-width:600px){
+	nav h1{
+		font-size: 15px;
+	}
+	.nav-icons i{
+		padding: 0 1px;
+	}
+	nav .nav-btn{
+		width: 30px;
+	}
+}
+.container{
+	display: flex;
+	width: 100%;
+}
+.container-left{
+	background: url("candleimg2.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	padding: 300px 0;
+	width: 60%;
+	position: relative;
+	
+}
+.container-right{
+	width: 600px;
+/*	border: 2px solid black;*/
+	position: absolute;
+	right: -300px;
+	padding: 80px 10px;
+	top: 150px;
+	
+}
+.container-right p{
+	font-size: 25px;
+}
+.container-right h1{
+	padding: 20px 0;
+	font-size: 40px;
+}
+.container-right button{
+	width: 120px;
+	height: 40px;
+	background-color: rgb(94 94 74);
+	border: none;
+	cursor: pointer;
+	color: white;
+	font-size: 15px;
+}
+.container-right button:hover{
+	background-color: #c2c1b9;
+	color: black;
+}
+@media (max-width:991px){
+	.container{
+		flex-direction: column;
+		
+	}
+	.container-left{
+		width: 100%;
+		height: 400px;
+		position: unset;
+		padding: 0;
+		display: block;
+	}
+	.container-right{
+/*		position: absolute;*/
+		width: 100%;
+		right: 0;
+		top: 450px;
+	}
+}
+.container2{
+	display: flex;
+	margin-top: 70px;
+}
+.container2 .box1{
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+	border: 2px solid black;
+	margin-top: 80px;
+	justify-content: center;
+	align-items: center;
+	padding: 40px;
+}
+.container2 .box1 p{
+	padding: 30px 0;
+}
+.container2 .box1 button{
+	width: 120px;
+	height: 40px;
+	background-color: rgb(94 94 74);
+	border: none;
+	cursor: pointer;
+	color: white;
+	font-size: 15px;
+}
+.container2 .box1 button:hover{
+	background-color: #c2c1b9;
+	color: black;
+}
+
+@media (max-width:991px){
+	.container2{
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	.container2 .box1{
+		margin-top: 350px;
+		width: 100%;
+	}
+	.container2 .box2-outer{
+		margin-top: 30px;
+			width: 100%;
+			background-color: rgb(94 94 74);
+			padding: 40px 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+	}
+	.container2 .box2{
+		background: url("candleimg3.jpg");
+		background-size: cover;
+		padding: 200px 0;
+		width: 80%;
+		}
+}
+@media (min-width:991px){
+	.container2 .box2-outer{
+	width: 30%;
+	position: relative;
+/*	border: 2px solid black;*/
+	padding: 250px 0;
+	top: 80px;
+	margin-left: 80px;
+	background-color: rgb(94 94 74);
+}
+.container2 .box2{
+	position: absolute;
+	background: url("candleimg3.jpg");
+	background-size: cover;
+	background-position: center;
+	padding: 250px 0;
+	width: 100%;
+	top: -60px;
+	left: 80px;
+}
+}
+.page3{
+	width: 100%;
+	margin-top: 150px;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	background-color: rgb(199,199,199);
+}
+.container3{
+	display: inline-block;
+	width: 90%;
+}
+.container3 h2{
+	padding: 40px 0;
+	text-align: center;
+}
+.card-boxes{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.card{
+	margin: 50px 0;
+	width: 30%;
+	box-shadow: 5px 5px 20px rgb(94 94 74);
+	overflow: hidden;
+	position: relative;
+	background-color: whitesmoke;
+}
+.container3 .card img{
+	width: 100%;
+	border-radius: 5px;
+}
+.container3 .card p{
+	text-align: center;
+	padding: 8px 0;
+	font-size: 25px;
+	visibility: hidden;
+	opacity: 0;
+}
+.container3 .card button{
+	width: 200px;
+	padding: 8px 0;
+	background-color: rgb(94 94 74);
+	border: none;
+	cursor: pointer;
+	color: white;
+	font-size: 15px;
+	visibility: hidden;
+	opacity: 0;
+}
+.container3 .card button:hover{
+	background-color: #c2c1b9;
+	color: black;
+}
+.intro{
+	height: 70px;
+	width: 100%;
+	padding: 12px 0;
+	position: absolute;
+	background-color: #ad8d59;
+	text-align: center;
+	bottom: 0;
+	transition: .5s;
+}
+.container3 .card:hover{
+	cursor: pointer;
+}
+.card:hover .intro{
+	height: 220px;
+	bottom: 0;
+	background-color: rgba(205, 178, 134, 0.3);
+}
+.card:hover p{
+	opacity: 1;
+	visibility: visible;
+}
+.card:hover button{
+	opacity: 1;
+	visibility: visible;
+}
+.card:hover img{
+	transform: scale(1.1) rotate(-5deg);
+}
+@media (max-width:991px){
+	.card-boxes{
+		flex-direction: column;
+	}
+	.card{
+		width: 80%;
+	}
+	.page3{
+		margin-top: 30px;
+	}
+}
+.footer{
+	margin-top: 200px;
+	position: relative;
+	width: 100%;
+	background-color: #3586ff;
+	padding: 3% 5%;
+	text-align: center;
+	color: white;
+}
+.footer a{
+	color: white;
+	text-decoration: none;
+}
+.footer ul li{
+	list-style-type: none;
+}
+.footer .logo a{
+	font-size: 30px;
+	font-weight: 600;
+	margin: 22px 0;
+}
+.footer .wave{
+	position: absolute;
+	top: -100px;
+	left: 0;
+	width: 100%;
+	height: 100px;
+	background: url("wave.png");
+	background-size: 1000px 100px;
+}
+.footer .wave#wave1{
+	z-index: 1000;
+	opacity: 1;
+	bottom: 0;
+	animation: animae 4s linear infinite;
+}
+.footer .wave#wave2{
+	z-index: 999;
+	opacity: 0.5;
+	bottom: 10px;
+	animation: animae_02 4s linear infinite;
+}
+.footer .wave#wave3{
+	z-index: 1000;
+	opacity: 0.2;
+	bottom: 15px;
+	animation: animae 3s linear infinite;
+}
+.footer .wave#wave4{
+	z-index: 999;
+	opacity: 0.7;
+	bottom: 20px;
+	animation: animae_02 3s linear infinite;
+}
+@keyframes animae{
+	0%{
+
+		background-position-x: 1000px;
+	}
+	100%{
+		background-position-x: 0;
+	}
+}
+@keyframes animae_02{
+	0%{
+
+		background-position-x: 0;
+	}
+	100%{
+		background-position-x: 1000px;
+	}
+}
+.row{
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: space-evenly;
+	text-align: start;
+	margin-bottom: 30px;
+}
+.row .col{
+	width: 25%;
+/*	border: 2px solid black;*/
+}
+.row .col2{
+	text-align: center;
+}
+.social{
+	display: flex;
+	gap: 20px;
+}
+.social li{
+	height: 44px;
+	width: 44px;
+	border: 2px solid white;
+	border-radius: 50%;
+	position: relative;
+	transition: .6s;
+}
+.social li i{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	font-size: 18px;
+	transition: .6s;
+}
+.social li:hover{
+	background-color: white;
+	cursor: pointer;
+	transform: translateY(-5px);
+}
+.social li:hover i{
+	color: black;
+}
+@media (max-width:900px){
+	.row{
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+	}
+	.row .col{
+		margin-top: 30px;
+		width: 60%;
+
+	}
+	.row .col2{
+		text-align: start;
+	}
+	
+}

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		nav{
+			width: 100%;
+			height: 80px;
+			border: 2px solid black;
+			display: flex;
+			justify-content: space-evenly;
+			align-items: center;
+		}
+		.navbar-list ul li{
+			display: inline-block;
+			padding: 0 20px;
+		/*	border: 2px solid black;*/
+		}
+		.navbar-list ul li a{
+			text-decoration: none;
+			color: black;
+			position: relative;
+			padding: 7px 0;
+		}
+		.navbar-list ul li a:before{
+			position: absolute;
+			content: "";
+			left: 0;
+			top: 0;
+			height: 4px;
+			width: 100%;
+			background-color: rgb(94 94 74);
+			transform: scalex(0);
+			transform-origin: right;
+			transition: 0.5s linear;
+			border-radius: 5px;
+		}
+		.navbar-list ul li a:hover:before{
+			transform: scalex(1);
+			transform-origin: left;
+			color: white;
+		}
+		nav h1{
+			word-spacing: 3px;
+		}
+		.nav-icons i{
+			padding: 0 5px;
+		}
+		nav .nav-btn{
+		 	font-size: 20px;
+		 	width: 40px;
+		}
+		.nav-btn{
+			display: none;
+		}
+		@media (max-width:991px){
+			nav{
+				position: relative;
+			}
+			.navbar-list{
+				top: 80px;
+				width: 100%;
+				position: absolute;
+				background-color: rgba(97, 111, 122, 0.9);
+
+			}
+			.navbar-list ul li{
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				padding: 20px 0;
+
+			}
+			.navbar-list ul li a{
+				color: white;
+			}
+			.hide{
+				display: none;
+			}
+			.nav-btn{
+				display: block;
+			}
+
+		}
+		@media (max-width:600px){
+			nav h1{
+				font-size: 15px;
+			}
+			.nav-icons i{
+				padding: 0 1px;
+			}
+			nav .nav-btn{
+				width: 30px;
+			}
+
+		}
+		.container
+		{
+			width: 100%;
+/*			border: 2px solid black;*/
+			padding: 50px 0 200px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+		.box1
+		{
+			width: 50%;
+/*			border: 2px solid black;*/
+			text-align: center;
+
+		}
+		.box1 p{
+			padding: 20px 0;
+		}
+		.box1 button{
+			width: 150px;
+			height: 40px;
+			background-color: white;
+			border: none;
+			cursor: pointer;
+			color: black;
+			font-size: 15px;
+			border: 1px solid black;
+		}
+		.box1 button:hover{
+			background-color:rgb(94 94 74);
+			color: white;
+		}
+		.box2
+		{
+			width: 40%;
+/*			border: 1px solid black;*/
+			margin-top: 100px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			position: relative;
+			
+		}
+		.box2 img
+		{
+			width: 100%;
+			border-radius: 10px;
+		}
+		.box3
+		{
+			width: 55%;
+/*			border: 1px solid black;*/
+			position: absolute;
+			top: 65%;
+			
+		}
+		.box3 img
+		{
+			width: 100%;
+			display: block;
+			border-radius: 10px;
+		}
+		@media (max-width:991px){
+			.box2{
+				width: 65%;
+			}
+		}
+		@media (max-width:500px){
+			.box1{
+				width: 65%;
+			}
+			.box1 h1{
+				font-size: 20px;
+			}
+		}
+		.footer{
+			margin-top: 200px;
+			position: relative;
+			width: 100%;
+			background-color: #3586ff;
+			padding: 3% 5%;
+			text-align: center;
+			color: white;
+		}
+		.footer a{
+			color: white;
+			text-decoration: none;
+		}
+		.footer ul li{
+			list-style-type: none;
+		}
+		.footer .logo a{
+			font-size: 30px;
+			font-weight: 600;
+			margin: 22px 0;
+		}
+		.footer .wave{
+			position: absolute;
+			top: -100px;
+			left: 0;
+			width: 100%;
+			height: 100px;
+			background: url("wave.png");
+			background-size: 1000px 100px;
+		}
+		.footer .wave#wave1{
+			z-index: 1000;
+			opacity: 1;
+			bottom: 0;
+			animation: animae 4s linear infinite;
+		}
+		.footer .wave#wave2{
+			z-index: 999;
+			opacity: 0.5;
+			bottom: 10px;
+			animation: animae_02 4s linear infinite;
+		}
+		.footer .wave#wave3{
+			z-index: 1000;
+			opacity: 0.2;
+			bottom: 15px;
+			animation: animae 3s linear infinite;
+		}
+		.footer .wave#wave4{
+			z-index: 999;
+			opacity: 0.7;
+			bottom: 20px;
+			animation: animae_02 3s linear infinite;
+		}
+		@keyframes animae{
+			0%{
+
+				background-position-x: 1000px;
+			}
+			100%{
+				background-position-x: 0;
+			}
+		}
+		@keyframes animae_02{
+			0%{
+
+				background-position-x: 0;
+			}
+			100%{
+				background-position-x: 1000px;
+			}
+		}
+		.row{
+			height: 100%;
+			width: 100%;
+			display: flex;
+			justify-content: space-evenly;
+			text-align: start;
+			margin-bottom: 30px;
+		}
+		.row .col{
+			width: 25%;
+		/*	border: 2px solid black;*/
+		}
+		.row .col2{
+			text-align: center;
+		}
+		.social{
+			display: flex;
+			gap: 20px;
+		}
+		.social li{
+			height: 44px;
+			width: 44px;
+			border: 2px solid white;
+			border-radius: 50%;
+			position: relative;
+			transition: .6s;
+		}
+		.social li i{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			font-size: 18px;
+			transition: .6s;
+		}
+		.social li:hover{
+			background-color: white;
+			cursor: pointer;
+			transform: translateY(-5px);
+		}
+		.social li:hover i{
+			color: black;
+		}
+		@media (max-width:900px){
+			.row{
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				width: 100%;
+			}
+			.row .col{
+				margin-top: 30px;
+				width: 60%;
+
+			}
+			.row .col2{
+				text-align: start;
+			}
+		}
+	</style>
+</head>
+<body>
+	<nav>
+			<div class="navbar-list hide">
+				<ul>									
+					<li><a href="index.html">SHOP</a></li>
+					<li><a href="practise.html">OUR STORY</a></li>
+					<li><a href="sale.html">SALE</a></li>
+					<li><a href="contact.html">CONTACT</a></li>
+				</ul>
+			</div>
+			<h1>FRAIS SOAPS & CANDLES SHOP</h1>
+			<div class="nav-icons">
+				<i>Log In</i>
+				<i class="fa-solid fa-gift"></i>
+				<i class="fa-solid fa-weight-hanging"></i>
+			</div>
+			<button class="nav-btn"><i class="fa-solid fa-bars"></i></button>
+	</nav>
+	<script>
+		document.querySelector(".nav-btn").onclick=function(){
+			document.querySelector(".navbar-list").classList.toggle("hide");
+		}
+	</script>
+	<div class="container">
+		<div class="box1">
+			<h1>NATURALLY SIMPLE</h1>
+			<p>I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. I’m a great place for you to tell a story and let your users know a little more about you.</p>
+			<button>Our Sttory</button>
+		</div>
+			<div class="box2">
+				<img src="soap5.jpeg">
+				<div class="box3">
+					<img src="bottomimg3.jpg">
+				</div>
+			</div>
+			
+	</div>
+	<!--Footer-->
+	<div class="footer">
+		<div class="waves">
+			<div class="wave" id="wave1"></div>
+			<div class="wave" id="wave2"></div>
+			<div class="wave" id="wave3"></div>
+			<div class="wave" id="wave4"></div>
+		</div>
+		<div class="row">
+			<div class="col col1">
+				<ul>
+					<li>
+						<div class="logo">
+							<a href="#">Logo</a>
+						</div>
+					</li>
+					<li>
+						<p>Lipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. </p>
+					</li>
+				</ul>
+			</div>
+			<div class="col col2">
+				<ul>
+					<li><a href="#">Our Story</a></li>
+					<li><a href="#">Sale</a></li>
+					<li><a href="#">Contact</a></li>
+				</ul>
+			</div>
+			<div class="col col3">
+				<ul>
+					<li>+125 435 4545</li>
+					<li>Example@gmail.com</li>
+					<li>India, Tamil Nadu</li>
+				</ul>
+			</div>
+			<div class="col col4">
+				<ul class="social">
+					<li><i class="fa-brands fa-facebook"></i></li>
+					<li><i class="fa-brands fa-twitter"></i></li>
+					<li><i class="fa-brands fa-whatsapp"></i></li>
+					<li><i class="fa-brands fa-instagram"></i></li>
+				</ul>
+			</div>
+		</div>
+		<p>&copy; 2023 || All Rights Received By K2infocom</p>
+	</div>
+
+	
+</body>
+</html>

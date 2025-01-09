@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Contact Page</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		nav{
+			width: 100%;
+			height: 80px;
+			border: 2px solid black;
+			display: flex;
+			justify-content: space-evenly;
+			align-items: center;
+		}
+		.navbar-list ul li{
+			display: inline-block;
+			padding: 0 20px;
+		/*	border: 2px solid black;*/
+			
+		}
+		.navbar-list ul li a{
+			text-decoration: none;
+			color: black;
+			position: relative;
+			padding: 7px 0;
+		}
+		.navbar-list ul li a:before{
+			position: absolute;
+			content: "";
+			left: 0;
+			top: 0;
+			height: 4px;
+			width: 100%;
+			background-color: rgb(94 94 74);
+			transform: scalex(0);
+			transform-origin: right;
+			transition: 0.5s linear;
+			border-radius: 5px;
+		}
+		.navbar-list ul li a:hover:before{
+			transform: scalex(1);
+			transform-origin: left;
+			color: white;
+		}
+		nav h1{
+			word-spacing: 3px;
+		}
+		.nav-icons i{
+			padding: 0 5px;
+		}
+		nav .nav-btn{
+		 	font-size: 20px;
+		 	width: 40px;
+		}
+		.nav-btn{
+			display: none;
+		}
+		@media (max-width:991px){
+			nav{
+				position: relative;
+				
+			}
+			.navbar-list{
+				top: 80px;
+				width: 100%;
+				position: absolute;
+				z-index: 2;
+				background-color: rgba(97, 111, 122, 0.9);
+				
+			}
+			.navbar-list ul li{
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				padding: 20px 0;
+				
+			}
+			.navbar-list ul li a{
+				color: white;
+			}
+			.hide{
+				display: none;
+			}
+			.nav-btn{
+				display: block;
+			}
+		}
+		@media (max-width:600px){
+			
+			nav h1{
+				font-size: 15px;
+			}
+			.nav-icons i{
+				padding: 0 1px;
+			}
+			nav .nav-btn{
+				width: 30px;
+			}
+		}
+/*	contact page*/
+
+		#section-wrapper{
+			width: 100%;
+			padding: 10px;
+		}
+		.box-wrapper{
+			position: relative;
+			display: table;
+			width: 100%;
+			margin: auto;
+			margin-top: 35px;
+			border-radius: 30px;
+		}
+		.info-wrap{
+			width: 35%;
+			height: 551px;
+			padding: 40px;
+			float: left;
+			display: block;
+			border-radius: 30px 0 0 30px;
+			background: linear-gradient(144deg,rgba(126,39,156,1)0%,rgba(49,39,157,1)100%);
+			color: white;
+		}
+		.info-title{
+			text-align: left;
+			font-size: 28px;
+			letter-spacing: 0.5px;
+		}
+		.info-sub-title{
+			font-size: 18px;
+			font-weight: 300px;
+			margin-top: 17px;
+			letter-spacing: 0.5px;
+			line-height: 26px;
+		}
+		.info-details{
+			list-style: none;
+			margin: 60px 0px;
+		}
+		.info-details li{
+			margin-top: 25px;
+			font-size: 18px;
+		}
+		.info-details li i{
+			background: #F44770;
+			padding: 12px;
+			border-radius: 50%;
+			margin-right: 5px;
+		}
+		.info-details li a{
+			color: #fff;
+			text-decoration: none;
+		}
+		.info-details li a:hover{
+			color: #F44770;
+		}
+		.social-icons{
+			list-style: none;
+			text-align: center;
+			margin: 20px 0px;
+		}
+		.social-icons li{
+			display: inline-block;
+		}
+		.social-icons li i{
+			background: #F44770;
+			color: white;
+			padding: 15px;
+			font-size: 20px;
+			border-radius: 22%;
+			margin: 0 5px;
+			cursor: pointer;
+			transition: all .5s;
+		}
+		.social-icons li i:hover{
+			background: #fff;
+			color: #000;
+		}
+		.form-wrap{
+			width: 65%;
+			float: right;
+			padding: 40px 25px 35px 25px;
+			border-radius: 0px 30px 30px 0px;
+			background: #ecf0f3;
+		}
+		.form-title{
+			text-align: left;
+			margin-left: 23px;
+			font-size: 28px;
+			letter-spacing: 0.5px;
+		}
+		.form-fields{
+			display: table;
+			width: 100%;
+			padding: 15px 5px 5px 5px;
+		}
+		.form-fields input,
+		.form-fields textarea{
+			border: none;
+			outline: none;
+			background: none;
+			font-size: 18px;
+			color: #555;
+			padding: 20px 10px 20px 15px;
+			width: 100%;
+		}
+		.form-fields textarea{
+			height: 150px;
+			resize: none;
+		}
+		.form-group{
+			width: 46%;
+			float: left;
+			padding: 0x 30px;
+			margin: 14px 12px;
+			border-radius: 25px;
+			box-shadow: inset 8px 8px 8px #cbc3d1, inset -8px -8px 8px #ffffff;
+		}
+		.form-fields .form-group:last-child{
+			width: 96%;
+		}
+		.submit-button{
+			width: 96%;
+			height: 60px;
+			margin: 0px 12px;
+			border-radius: 30px;
+			font-size: 20px;
+			font-weight: 700;
+			outline: none;
+			cursor: pointer;
+			color: #fff;
+			text-align: center;
+			background: #F44770;
+			box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
+			transition: .5s;
+		}
+		.submit-button:hover{
+			background: #31279d;
+		}
+		@media (max-width:991px){
+			.box-wrapper{
+				width: 100%;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+			}
+			.info-wrap,
+			.form-wrap{
+				width: 100%;
+				height: inherit;
+				float: none;
+			}
+			.info-wrap{
+				border-radius: 30px 30px 0px 0px;
+			}
+			.form-wrap{
+				border-radius: 0px 0px 30px 30px;
+
+			}
+			.form-group{
+				width: 65%;
+				float: none;
+				margin: 25px 0px;
+
+			}
+			.form-fields .form-group:last-child,
+			.submit-button{
+				width: 65%;
+			}
+		}
+		.footer{
+			margin-top: 200px;
+			position: relative;
+			width: 100%;
+			background-color: #3586ff;
+			padding: 3% 5%;
+			text-align: center;
+			color: white;
+		}
+		.footer a{
+			color: white;
+			text-decoration: none;
+		}
+		.footer ul li{
+			list-style-type: none;
+		}
+		.footer .logo a{
+			font-size: 30px;
+			font-weight: 600;
+			margin: 22px 0;
+		}
+		.footer .wave{
+			position: absolute;
+			top: -100px;
+			left: 0;
+			width: 100%;
+			height: 100px;
+			background: url("wave.png");
+			background-size: 1000px 100px;
+		}
+		.footer .wave#wave1{
+			z-index: 1000;
+			opacity: 1;
+			bottom: 0;
+			animation: animae 4s linear infinite;
+		}
+		.footer .wave#wave2{
+			z-index: 999;
+			opacity: 0.5;
+			bottom: 10px;
+			animation: animae_02 4s linear infinite;
+		}
+		.footer .wave#wave3{
+			z-index: 1000;
+			opacity: 0.2;
+			bottom: 15px;
+			animation: animae 3s linear infinite;
+		}
+		.footer .wave#wave4{
+			z-index: 999;
+			opacity: 0.7;
+			bottom: 20px;
+			animation: animae_02 3s linear infinite;
+		}
+		@keyframes animae{
+			0%{
+
+				background-position-x: 1000px;
+			}
+			100%{
+				background-position-x: 0;
+			}
+		}
+		@keyframes animae_02{
+			0%{
+
+				background-position-x: 0;
+			}
+			100%{
+				background-position-x: 1000px;
+			}
+		}
+		.row{
+			height: 100%;
+			width: 100%;
+			display: flex;
+			justify-content: space-evenly;
+			text-align: start;
+			margin-bottom: 30px;
+		}
+		.row .col{
+			width: 25%;
+/*			border: 2px solid black;*/
+		}
+		.row .col2{
+			text-align: center;
+		}
+		.social{
+			display: flex;
+			gap: 20px;
+		}
+		.social li{
+			height: 44px;
+			width: 44px;
+			border: 2px solid white;
+			border-radius: 50%;
+			position: relative;
+			transition: .6s;
+		}
+		.social li i{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			font-size: 18px;
+			transition: .6s;
+		}
+		.social li:hover{
+			background-color: white;
+			cursor: pointer;
+			transform: translateY(-5px);
+		}
+		.social li:hover i{
+			color: black;
+		}
+		@media (max-width:900px){
+			.row{
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				width: 100%;
+			}
+			.row .col{
+				margin-top: 30px;
+				width: 60%;
+
+			}
+			.row .col2{
+				text-align: start;
+			}
+		}
+
+	</style>
+</head>
+<body>
+	<nav>
+			<div class="navbar-list hide">
+				<ul>									
+					<li><a href="index.html">SHOP</a></li>
+					<li><a href="practise.html">OUR STORY</a></li>
+					<li><a href="sale.html">SALE</a></li>
+					<li><a href="contact.html">CONTACT</a></li>
+				</ul>
+			</div>
+			<h1>FRAIS SOAPS & CANDLES SHOP</h1>
+			<div class="nav-icons">
+				<i>Log In</i>
+				<i class="fa-solid fa-gift"></i>
+				<i class="fa-solid fa-weight-hanging"></i>
+			</div>
+			<button class="nav-btn"><i class="fa-solid fa-bars"></i></button>
+	</nav>
+	<script>
+		document.querySelector(".nav-btn").onclick=function(){
+			document.querySelector(".navbar-list").classList.toggle("hide");
+		}
+	</script>
+	<!--contact page-->
+		<section id="section-wrapper">
+			<div class="box-wrapper">
+				<div class="info-wrap">
+					<h2 class="info-title">Contact Information</h2>
+					<h3 class="info-sub-title">Fill up the form and our team will get back to you within 24 hours</h3>
+					<ul class="info-details">
+						<li>
+							<i class="fa-solid fa-phone"></i>
+							<span>Phone:</span><a href="tel:+123456789">123456789</a>
+						</li>
+						<li>
+							<i class="fa-solid fa-paper-plane"></i>
+							<span>Email:</span><a href="mailto:info@yoursite.com">info@yoursite.com</a>
+						</li>
+						<li>
+							<i class="fa-solid fa-globe"></i>
+							<span>Website:</span><a href="https://yoursite.com">yoursite.com</a>
+						</li>
+					</ul>
+					<ul class="social-icons">
+						<li>
+							<a href="#">
+								<i class="fa-brands fa-facebook"></i>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<i class="fa-brands fa-twitter"></i>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<i class="fa-brands fa-linkedin"></i>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="form-wrap">
+					<form action="#" method="POST">
+						<h2 class="form-title">Send us a message</h2>
+						<div class="form-fields">
+							<div class="form-group">
+								<input type="text" name="fname" placeholder="First Name">
+							</div>
+							<div class="form-group">
+								<input type="text" name="lname" placeholder="Last Name">
+							</div>
+							<div class="form-group">
+								<input type="email" name="email" placeholder="Mail">
+							</div>
+							<div class="form-group">
+								<input type="number" name="phone" placeholder="Phone">
+							</div>
+							<div class="form-group">
+								<textarea name="message" placeholder="Write your message"></textarea>
+							</div>
+						</div>
+						<input type="submit" value="Send message" class="submit-button">
+					</form>
+				</div>
+			</div>
+		</section>
+	<!--Footer-->
+	<div class="footer">
+		<div class="waves">
+			<div class="wave" id="wave1"></div>
+			<div class="wave" id="wave2"></div>
+			<div class="wave" id="wave3"></div>
+			<div class="wave" id="wave4"></div>
+		</div>
+		<div class="row">
+			<div class="col col1">
+				<ul>
+					<li>
+						<div class="logo">
+							<a href="#">Logo</a>
+						</div>
+					</li>
+					<li>
+						<p>Lipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. </p>
+					</li>
+				</ul>
+			</div>
+			<div class="col col2">
+				<ul>
+					<li><a href="#">Our Story</a></li>
+					<li><a href="#">Sale</a></li>
+					<li><a href="#">Contact</a></li>
+				</ul>
+			</div>
+			<div class="col col3">
+				<ul>
+					<li>+125 435 4545</li>
+					<li>Example@gmail.com</li>
+					<li>India, Tamil Nadu</li>
+				</ul>
+			</div>
+			<div class="col col4">
+				<ul class="social">
+					<li><i class="fa-brands fa-facebook"></i></li>
+					<li><i class="fa-brands fa-twitter"></i></li>
+					<li><i class="fa-brands fa-whatsapp"></i></li>
+					<li><i class="fa-brands fa-instagram"></i></li>
+				</ul>
+			</div>
+		</div>
+		<p>&copy; 2023 || All Rights Received By K2infocom</p>
+	</div>
+</body>
+</html>
